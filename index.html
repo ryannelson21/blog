@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Blog</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <aside class="sidebar">
+        <div class="logo">my blog</div>
+        <nav class="nav">
+          <a href="index.html" class="active">Stories</a>
+          <a href="admin.html">Admin</a>
+          <a href="#subscribe">Subscribe</a>
+        </nav>
+        <div class="sidebar-meta">
+          <p>Minimalist notes in black & white.</p>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="hero">
+          <p class="eyebrow">Open notes on craft & clarity</p>
+          <h1>Minimalist essays in black and white.</h1>
+          <p class="hero-subtitle">
+            Clean squares, short headlines, and restrained typography inspired by
+            OpenAI.
+          </p>
+          <div class="hero-actions">
+            <button class="primary">Read the latest</button>
+            <button class="secondary">Join the list</button>
+          </div>
+        </header>
+
+        <section id="stories" class="section">
+          <div class="section-heading">
+            <h2>Latest stories</h2>
+            <p>Square tiles link to each article.</p>
+          </div>
+          <div class="cards">
+            <a class="card" href="article.html">
+              <p class="card-tag">Design</p>
+              <h3>Quiet interfaces, loud ideas</h3>
+              <p class="card-subtitle">How restraint creates room for meaning.</p>
+            </a>
+            <a class="card" href="article.html">
+              <p class="card-tag">Writing</p>
+              <h3>Notes on intentional brevity</h3>
+              <p class="card-subtitle">Editing as a daily practice.</p>
+            </a>
+            <a class="card" href="article.html">
+              <p class="card-tag">Culture</p>
+              <h3>Work that feels human</h3>
+              <p class="card-subtitle">Systems that leave space to breathe.</p>
+            </a>
+            <a class="card" href="article.html">
+              <p class="card-tag">Studio</p>
+              <h3>Building with fewer tools</h3>
+              <p class="card-subtitle">Minimal stacks for maximal focus.</p>
+            </a>
+          </div>
+        </section>
+
+        <section id="subscribe" class="section subscribe">
+          <div>
+            <h2>Subscribe</h2>
+            <p>One email a week. No noise, just highlights.</p>
+          </div>
+          <form class="subscribe-form">
+            <input type="email" placeholder="you@email.com" required />
+            <button type="submit" class="primary">Sign up</button>
+          </form>
+        </section>
+
+        <footer class="site-footer">
+          <div>
+            <strong>my blog</strong>
+            <p>Minimalist writing in black and white.</p>
+          </div>
+          <div class="footer-links">
+            <a href="index.html">Stories</a>
+            <a href="admin.html">Admin</a>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
