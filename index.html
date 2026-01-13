@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Blog</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <aside class="sidebar">
+        <div class="logo">my blog</div>
+        <nav class="nav-links">
+          <a href="#stories">Stories</a>
+          <a href="#topics">Topics</a>
+          <a href="#subscribe">Subscribe</a>
+          <a href="admin.html">Admin</a>
+        </nav>
+        <div class="sidebar-footer">
+          <p>Minimalist writing in black and white.</p>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="hero">
+          <p class="eyebrow">Open notes on craft & clarity</p>
+          <h1>Minimalist essays in black and white.</h1>
+          <p class="hero-subtitle">
+            A clean, quiet space for short reflections, design notes, and calm ideas.
+          </p>
+          <div class="hero-actions">
+            <button class="primary">Read the latest</button>
+            <button class="secondary">Join the list</button>
+          </div>
+        </header>
+
+        <section id="stories" class="section">
+          <div class="section-heading">
+            <h2>Latest stories</h2>
+            <p>Square tiles with a headline and a single-line takeaway.</p>
+          </div>
+          <div class="cards" id="post-grid"></div>
+        </section>
+
+        <section id="topics" class="section topics">
+          <div class="section-heading">
+            <h2>Topics</h2>
+            <p>Short series organized as simple, monochrome blocks.</p>
+          </div>
+          <div class="topic-grid">
+            <div class="topic">
+              <h3>AI & craft</h3>
+              <p>Thoughtful ways to build with emerging tools.</p>
+            </div>
+            <div class="topic">
+              <h3>Design systems</h3>
+              <p>Structure, rhythm, and generous white space.</p>
+            </div>
+            <div class="topic">
+              <h3>Product notes</h3>
+              <p>Small choices that shape the user experience.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="subscribe" class="section subscribe">
+          <div>
+            <h2>Subscribe</h2>
+            <p>One email a week. No noise, just highlights.</p>
+          </div>
+          <form class="subscribe-form">
+            <input type="email" placeholder="you@email.com" required />
+            <button type="submit" class="primary">Sign up</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const defaultPosts = [
+        {
+          id: "quiet-interfaces",
+          tag: "Design",
+          title: "Quiet interfaces, loud ideas",
+          tagline: "How restraint creates room for meaning.",
+          body:
+            "Clean systems invite focus. This piece explores how UI minimalism can amplify the message rather than dilute it.",
+        },
+        {
+          id: "intentional-brevity",
+          tag: "Writing",
+          title: "Notes on intentional brevity",
+          tagline: "Editing as a daily practice.",
+          body:
+            "Editing is a kind of kindness. It makes room for readers to think and breathe between lines.",
+        },
+        {
+          id: "human-work",
+          tag: "Culture",
+          title: "Work that feels human",
+          tagline: "Systems that leave space to breathe.",
+          body:
+            "Great teams design rituals that protect focus, reduce noise, and honor the human behind the work.",
+        },
+        {
+          id: "fewer-tools",
+          tag: "Studio",
+          title: "Building with fewer tools",
+          tagline: "Minimal stacks for maximal focus.",
+          body:
+            "Constraints can be liberating. This story shares how to build with a lightweight toolkit and a clear goal.",
+        },
+      ];
+
+      const storedPosts = JSON.parse(localStorage.getItem("blogPosts") || "[]");
+      const posts = storedPosts.length ? storedPosts : defaultPosts;
+      const grid = document.getElementById("post-grid");
+
+      posts.forEach((post) => {
+        const card = document.createElement("a");
+        card.className = "card";
+        card.href = `article.html?id=${post.id}`;
+        card.innerHTML = `
+          <p class="card-tag">${post.tag}</p>
+          <h3>${post.title}</h3>
+          <p class="card-subtitle">${post.tagline}</p>
+        `;
+        grid.appendChild(card);
+      });
+    </script>
+  </body>
+</html>
