@@ -3,113 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin</title>
+    <title>Admin · My Blog</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="page">
       <aside class="sidebar">
         <div class="logo">my blog</div>
-        <nav class="nav-links">
-          <a href="index.html#stories">Stories</a>
-          <a href="index.html#topics">Topics</a>
+        <nav class="nav">
+          <a href="index.html">Stories</a>
+          <a href="admin.html" class="active">Admin</a>
           <a href="index.html#subscribe">Subscribe</a>
-          <a href="admin.html">Admin</a>
         </nav>
-        <div class="sidebar-footer">
-          <p>Manage posts for the homepage.</p>
+        <div class="sidebar-meta">
+          <p>Drafts & publishing</p>
         </div>
       </aside>
 
       <main class="content">
         <section class="section admin">
           <div class="section-heading">
-            <h2>Admin</h2>
-            <p>Add, edit, and remove posts that appear on the homepage.</p>
+            <h2>Admin workspace</h2>
+            <p>Upload a post and control what appears on the homepage.</p>
           </div>
-          <form class="admin-form" id="admin-form">
+
+          <form class="admin-form">
             <label>
               Title
-              <input type="text" name="title" required />
-            </label>
-            <label>
-              Tag
-              <input type="text" name="tag" required />
+              <input type="text" placeholder="Post title" />
             </label>
             <label>
               Tagline
-              <input type="text" name="tagline" required />
+              <input type="text" placeholder="Short one-line description" />
             </label>
             <label>
-              Body
-              <textarea name="body" rows="6" required></textarea>
+              Category
+              <input type="text" placeholder="Design, Writing, Culture" />
             </label>
-            <button class="primary" type="submit">Add post</button>
+            <label>
+              Article body
+              <textarea rows="8" placeholder="Write your post here..."></textarea>
+            </label>
+            <label>
+              Upload cover image
+              <input type="file" />
+            </label>
+            <button type="submit" class="primary">Save draft</button>
           </form>
-          <div class="admin-list" id="admin-list"></div>
+
+          <div class="admin-note">
+            <p>
+              This is a visual admin layout for now. Hooking up saving and publishing
+              will require a backend or a CMS.
+            </p>
+          </div>
         </section>
       </main>
     </div>
-
-    <script>
-      const form = document.getElementById("admin-form");
-      const list = document.getElementById("admin-list");
-
-      const getPosts = () =>
-        JSON.parse(localStorage.getItem("blogPosts") || "[]");
-
-      const savePosts = (posts) =>
-        localStorage.setItem("blogPosts", JSON.stringify(posts));
-
-      const renderList = () => {
-        const posts = getPosts();
-        list.innerHTML = "";
-        if (!posts.length) {
-          list.innerHTML = "<p class=\"muted\">No custom posts yet.</p>";
-          return;
-        }
-
-        posts.forEach((post) => {
-          const item = document.createElement("div");
-          item.className = "admin-item";
-          item.innerHTML = `
-            <div>
-              <strong>${post.title}</strong>
-              <p class="muted">${post.tag} \u2022 ${post.tagline}</p>
-            </div>
-            <button class="secondary" data-id="${post.id}">Remove</button>
-          `;
-          list.appendChild(item);
-        });
-      };
-
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const formData = new FormData(form);
-        const post = {
-          id: `${Date.now()}`,
-          title: formData.get("title").trim(),
-          tag: formData.get("tag").trim(),
-          tagline: formData.get("tagline").trim(),
-          body: formData.get("body").trim(),
-        };
-        const posts = getPosts();
-        posts.unshift(post);
-        savePosts(posts);
-        form.reset();
-        renderList();
-      });
-
-      list.addEventListener("click", (event) => {
-        const button = event.target.closest("button");
-        if (!button) return;
-        const posts = getPosts();
-        const updated = posts.filter((post) => post.id !== button.dataset.id);
-        savePosts(updated);
-        renderList();
-      });
-
-      renderList();
-    </script>
   </body>
 </html>
