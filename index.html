@@ -10,13 +10,14 @@
     <div class="page">
       <aside class="sidebar">
         <div class="logo">my blog</div>
-        <nav class="nav">
-          <a href="index.html" class="active">Stories</a>
-          <a href="admin.html">Admin</a>
+        <nav class="nav-links">
+          <a href="#stories">Stories</a>
+          <a href="#topics">Topics</a>
           <a href="#subscribe">Subscribe</a>
+          <a href="admin.html">Admin</a>
         </nav>
-        <div class="sidebar-meta">
-          <p>Minimalist notes in black & white.</p>
+        <div class="sidebar-footer">
+          <p>Minimalist writing in black and white.</p>
         </div>
       </aside>
 
@@ -25,8 +26,7 @@
           <p class="eyebrow">Open notes on craft & clarity</p>
           <h1>Minimalist essays in black and white.</h1>
           <p class="hero-subtitle">
-            Clean squares, short headlines, and restrained typography inspired by
-            OpenAI.
+            A clean, quiet space for short reflections, design notes, and calm ideas.
           </p>
           <div class="hero-actions">
             <button class="primary">Read the latest</button>
@@ -37,29 +37,29 @@
         <section id="stories" class="section">
           <div class="section-heading">
             <h2>Latest stories</h2>
-            <p>Square tiles link to each article.</p>
+            <p>Square tiles with a headline and a single-line takeaway.</p>
           </div>
-          <div class="cards">
-            <a class="card" href="article.html">
-              <p class="card-tag">Design</p>
-              <h3>Quiet interfaces, loud ideas</h3>
-              <p class="card-subtitle">How restraint creates room for meaning.</p>
-            </a>
-            <a class="card" href="article.html">
-              <p class="card-tag">Writing</p>
-              <h3>Notes on intentional brevity</h3>
-              <p class="card-subtitle">Editing as a daily practice.</p>
-            </a>
-            <a class="card" href="article.html">
-              <p class="card-tag">Culture</p>
-              <h3>Work that feels human</h3>
-              <p class="card-subtitle">Systems that leave space to breathe.</p>
-            </a>
-            <a class="card" href="article.html">
-              <p class="card-tag">Studio</p>
-              <h3>Building with fewer tools</h3>
-              <p class="card-subtitle">Minimal stacks for maximal focus.</p>
-            </a>
+          <div class="cards" id="post-grid"></div>
+        </section>
+
+        <section id="topics" class="section topics">
+          <div class="section-heading">
+            <h2>Topics</h2>
+            <p>Short series organized as simple, monochrome blocks.</p>
+          </div>
+          <div class="topic-grid">
+            <div class="topic">
+              <h3>AI & craft</h3>
+              <p>Thoughtful ways to build with emerging tools.</p>
+            </div>
+            <div class="topic">
+              <h3>Design systems</h3>
+              <p>Structure, rhythm, and generous white space.</p>
+            </div>
+            <div class="topic">
+              <h3>Product notes</h3>
+              <p>Small choices that shape the user experience.</p>
+            </div>
           </div>
         </section>
 
@@ -73,18 +73,60 @@
             <button type="submit" class="primary">Sign up</button>
           </form>
         </section>
-
-        <footer class="site-footer">
-          <div>
-            <strong>my blog</strong>
-            <p>Minimalist writing in black and white.</p>
-          </div>
-          <div class="footer-links">
-            <a href="index.html">Stories</a>
-            <a href="admin.html">Admin</a>
-          </div>
-        </footer>
       </main>
     </div>
+
+    <script>
+      const defaultPosts = [
+        {
+          id: "quiet-interfaces",
+          tag: "Design",
+          title: "Quiet interfaces, loud ideas",
+          tagline: "How restraint creates room for meaning.",
+          body:
+            "Clean systems invite focus. This piece explores how UI minimalism can amplify the message rather than dilute it.",
+        },
+        {
+          id: "intentional-brevity",
+          tag: "Writing",
+          title: "Notes on intentional brevity",
+          tagline: "Editing as a daily practice.",
+          body:
+            "Editing is a kind of kindness. It makes room for readers to think and breathe between lines.",
+        },
+        {
+          id: "human-work",
+          tag: "Culture",
+          title: "Work that feels human",
+          tagline: "Systems that leave space to breathe.",
+          body:
+            "Great teams design rituals that protect focus, reduce noise, and honor the human behind the work.",
+        },
+        {
+          id: "fewer-tools",
+          tag: "Studio",
+          title: "Building with fewer tools",
+          tagline: "Minimal stacks for maximal focus.",
+          body:
+            "Constraints can be liberating. This story shares how to build with a lightweight toolkit and a clear goal.",
+        },
+      ];
+
+      const storedPosts = JSON.parse(localStorage.getItem("blogPosts") || "[]");
+      const posts = storedPosts.length ? storedPosts : defaultPosts;
+      const grid = document.getElementById("post-grid");
+
+      posts.forEach((post) => {
+        const card = document.createElement("a");
+        card.className = "card";
+        card.href = `article.html?id=${post.id}`;
+        card.innerHTML = `
+          <p class="card-tag">${post.tag}</p>
+          <h3>${post.title}</h3>
+          <p class="card-subtitle">${post.tagline}</p>
+        `;
+        grid.appendChild(card);
+      });
+    </script>
   </body>
 </html>
