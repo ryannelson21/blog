@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin · My Blog</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <aside class="sidebar">
+        <div class="logo">my blog</div>
+        <nav class="nav">
+          <a href="index.html">Stories</a>
+          <a href="admin.html" class="active">Admin</a>
+          <a href="index.html#subscribe">Subscribe</a>
+        </nav>
+        <div class="sidebar-meta">
+          <p>Drafts & publishing</p>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="section admin">
+          <div class="section-heading">
+            <h2>Admin workspace</h2>
+            <p>Upload a post and control what appears on the homepage.</p>
+          </div>
+
+          <form class="admin-form">
+            <label>
+              Title
+              <input type="text" placeholder="Post title" />
+            </label>
+            <label>
+              Tagline
+              <input type="text" placeholder="Short one-line description" />
+            </label>
+            <label>
+              Category
+              <input type="text" placeholder="Design, Writing, Culture" />
+            </label>
+            <label>
+              Article body
+              <textarea rows="8" placeholder="Write your post here..."></textarea>
+            </label>
+            <label>
+              Upload cover image
+              <input type="file" />
+            </label>
+            <button type="submit" class="primary">Save draft</button>
+          </form>
+
+          <div class="admin-note">
+            <p>
+              This is a visual admin layout for now. Hooking up saving and publishing
+              will require a backend or a CMS.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
