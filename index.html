@@ -7,101 +7,84 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <nav class="nav">
+    <div class="page">
+      <aside class="sidebar">
         <div class="logo">my blog</div>
-        <div class="nav-links">
-          <a href="#stories">Stories</a>
-          <a href="#topics">Topics</a>
+        <nav class="nav">
+          <a href="index.html" class="active">Stories</a>
+          <a href="admin.html">Admin</a>
           <a href="#subscribe">Subscribe</a>
+        </nav>
+        <div class="sidebar-meta">
+          <p>Minimalist notes in black & white.</p>
         </div>
-      </nav>
-      <section class="hero">
-        <p class="eyebrow">Open notes on craft & clarity</p>
-        <h1>Minimalist essays in black and white.</h1>
-        <p class="hero-subtitle">
-          A clean, quiet space for short reflections, design notes, and calm ideas.
-        </p>
-        <div class="hero-actions">
-          <button class="primary">Read the latest</button>
-          <button class="secondary">Join the list</button>
-        </div>
-      </section>
-    </header>
+      </aside>
 
-    <main>
-      <section id="stories" class="section">
-        <div class="section-heading">
-          <h2>Latest stories</h2>
-          <p>Square tiles with a headline and a single-line takeaway.</p>
-        </div>
-        <div class="cards">
-          <article class="card">
-            <p class="card-tag">Design</p>
-            <h3>Quiet interfaces, loud ideas</h3>
-            <p class="card-subtitle">How restraint creates room for meaning.</p>
-          </article>
-          <article class="card">
-            <p class="card-tag">Writing</p>
-            <h3>Notes on intentional brevity</h3>
-            <p class="card-subtitle">Editing as a daily practice.</p>
-          </article>
-          <article class="card">
-            <p class="card-tag">Culture</p>
-            <h3>Work that feels human</h3>
-            <p class="card-subtitle">Systems that leave space to breathe.</p>
-          </article>
-          <article class="card">
-            <p class="card-tag">Studio</p>
-            <h3>Building with fewer tools</h3>
-            <p class="card-subtitle">Minimal stacks for maximal focus.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="topics" class="section topics">
-        <div class="section-heading">
-          <h2>Topics</h2>
-          <p>Short series organized as simple, monochrome blocks.</p>
-        </div>
-        <div class="topic-grid">
-          <div class="topic">
-            <h3>AI & craft</h3>
-            <p>Thoughtful ways to build with emerging tools.</p>
+      <main class="content">
+        <header class="hero">
+          <p class="eyebrow">Open notes on craft & clarity</p>
+          <h1>Minimalist essays in black and white.</h1>
+          <p class="hero-subtitle">
+            Clean squares, short headlines, and restrained typography inspired by
+            OpenAI.
+          </p>
+          <div class="hero-actions">
+            <button class="primary">Read the latest</button>
+            <button class="secondary">Join the list</button>
           </div>
-          <div class="topic">
-            <h3>Design systems</h3>
-            <p>Structure, rhythm, and generous white space.</p>
-          </div>
-          <div class="topic">
-            <h3>Product notes</h3>
-            <p>Small choices that shape the user experience.</p>
-          </div>
-        </div>
-      </section>
+        </header>
 
-      <section id="subscribe" class="section subscribe">
-        <div>
-          <h2>Subscribe</h2>
-          <p>One email a week. No noise, just highlights.</p>
-        </div>
-        <form class="subscribe-form">
-          <input type="email" placeholder="you@email.com" required />
-          <button type="submit" class="primary">Sign up</button>
-        </form>
-      </section>
-    </main>
+        <section id="stories" class="section">
+          <div class="section-heading">
+            <h2>Latest stories</h2>
+            <p>Square tiles link to each article.</p>
+          </div>
+          <div class="cards">
+            <a class="card" href="article.html">
+              <p class="card-tag">Design</p>
+              <h3>Quiet interfaces, loud ideas</h3>
+              <p class="card-subtitle">How restraint creates room for meaning.</p>
+            </a>
+            <a class="card" href="article.html">
+              <p class="card-tag">Writing</p>
+              <h3>Notes on intentional brevity</h3>
+              <p class="card-subtitle">Editing as a daily practice.</p>
+            </a>
+            <a class="card" href="article.html">
+              <p class="card-tag">Culture</p>
+              <h3>Work that feels human</h3>
+              <p class="card-subtitle">Systems that leave space to breathe.</p>
+            </a>
+            <a class="card" href="article.html">
+              <p class="card-tag">Studio</p>
+              <h3>Building with fewer tools</h3>
+              <p class="card-subtitle">Minimal stacks for maximal focus.</p>
+            </a>
+          </div>
+        </section>
 
-    <footer class="site-footer">
-      <div>
-        <strong>my blog</strong>
-        <p>Minimalist writing in black and white.</p>
-      </div>
-      <div class="footer-links">
-        <a href="#stories">Stories</a>
-        <a href="#topics">Topics</a>
-        <a href="#subscribe">Subscribe</a>
-      </div>
-    </footer>
+        <section id="subscribe" class="section subscribe">
+          <div>
+            <h2>Subscribe</h2>
+            <p>One email a week. No noise, just highlights.</p>
+          </div>
+          <form class="subscribe-form">
+            <input type="email" placeholder="you@email.com" required />
+            <button type="submit" class="primary">Sign up</button>
+          </form>
+        </section>
+
+        <footer class="site-footer">
+          <div>
+            <strong>my blog</strong>
+            <p>Minimalist writing in black and white.</p>
+          </div>
+          <div class="footer-links">
+            <a href="index.html">Stories</a>
+            <a href="admin.html">Admin</a>
+          </div>
+        </footer>
+      </main>
+    </div>
   </body>
 </html>
