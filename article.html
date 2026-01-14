@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiet interfaces, loud ideas</title>
+    <title>Provenance-first blog: product spec</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -22,27 +22,178 @@
 
       <main class="content">
         <article class="article">
-          <header>
-            <p class="eyebrow">Design</p>
-            <h1>Quiet interfaces, loud ideas</h1>
-            <p class="hero-subtitle">A minimalist perspective on focused product design.</p>
+          <header class="article-header">
+            <div>
+              <p class="eyebrow">Product Spec</p>
+              <h1>Provenance-first blog</h1>
+              <p class="hero-subtitle">
+                A public writing format that shows who wrote what and how each sentence
+                evolved over time.
+              </p>
+            </div>
+            <div class="mode-toggle">
+              <span class="mode-label">Mode</span>
+              <button class="secondary" id="modeToggle" aria-pressed="false">
+                Reader
+              </button>
+            </div>
           </header>
 
+          <section class="provenance-legend">
+            <div>
+              <h2>Provenance legend</h2>
+              <p>Toggle “Provenance” to reveal sentence origins and edit intensity.</p>
+            </div>
+            <div class="legend-items">
+              <div class="legend-pill human">Human draft</div>
+              <div class="legend-pill ai">AI draft</div>
+              <div class="legend-pill mixed">Mixed edit</div>
+              <div class="legend-pill light">Light edit</div>
+              <div class="legend-pill heavy">Heavy edit</div>
+            </div>
+          </section>
+
           <div class="article-body">
+            <h2>Product thesis</h2>
             <p>
-              A quiet interface isn’t empty; it’s intentional. Removing noise makes the
-              signal stronger, and the message clearer.
+              The blog is a readable essay first, and a transparent edit trail second.
+              Readers can opt into provenance without losing the flow of the piece.
             </p>
-            <p>
-              We focus on typography, spacing, and a small palette of calm neutrals so
-              content feels deliberate.
-            </p>
-            <p>
-              Every element earns its place. If it doesn’t help the reader, it leaves.
-            </p>
+
+            <h2>Core experience</h2>
+            <div class="feature-grid">
+              <div class="feature-card">
+                <h3>Reader mode</h3>
+                <p>Clean typography with no annotations. This is the default.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Provenance mode</h3>
+                <p>
+                  Overlay shows origin, draft, and edit intensity at the sentence level.
+                </p>
+              </div>
+              <div class="feature-card">
+                <h3>Edit log</h3>
+                <p>Prompts, key changes, and the “why” behind the rewrite.</p>
+              </div>
+            </div>
+
+            <h2>Annotated sample</h2>
+            <div class="provenance-sample">
+              <p class="sample-line">
+                <span
+                  class="sentence origin-human edit-heavy"
+                  data-origin="Human"
+                  data-draft="H"
+                  data-edit="Heavy edit"
+                  title="Origin: Human • Draft: H • Edit: Heavy"
+                >
+                  The premise is simple: show the decisions, not just the draft.
+                </span>
+                <sup class="origin-badge">H</sup>
+              </p>
+              <p class="sample-line">
+                <span
+                  class="sentence origin-ai edit-light"
+                  data-origin="AI"
+                  data-draft="A1"
+                  data-edit="Light edit"
+                  title="Origin: AI • Draft: A1 • Edit: Light"
+                >
+                  The model suggests structure, and the writer chooses what earns a place.
+                </span>
+                <sup class="origin-badge">A1</sup>
+              </p>
+              <p class="sample-line">
+                <span
+                  class="sentence origin-mixed edit-heavy"
+                  data-origin="Mixed"
+                  data-draft="A2"
+                  data-edit="Heavy edit"
+                  title="Origin: Mixed • Draft: A2 • Edit: Heavy"
+                >
+                  Transparency becomes the trust layer: you are demonstrating authorship.
+                </span>
+                <sup class="origin-badge">M</sup>
+              </p>
+            </div>
+
+            <h2>Version timeline</h2>
+            <ol class="timeline">
+              <li>
+                <strong>v1</strong> — AI baseline generated (A1).
+              </li>
+              <li>
+                <strong>v2</strong> — Human rewrote introduction and added thesis.
+              </li>
+              <li>
+                <strong>v3</strong> — AI added examples, human removed generic phrases.
+              </li>
+              <li>
+                <strong>v4</strong> — Final polish and tone alignment.
+              </li>
+            </ol>
+
+            <h2>Feature roadmap</h2>
+            <div class="feature-grid">
+              <div class="feature-card">
+                <h3>MVP (2–3 weeks)</h3>
+                <ul>
+                  <li>Reader ↔ Provenance toggle.</li>
+                  <li>Origin color-coding with draft badges.</li>
+                  <li>Hover tooltips with provenance metadata.</li>
+                  <li>Bottom-of-post edit log.</li>
+                </ul>
+              </div>
+              <div class="feature-card">
+                <h3>V1 (6–8 weeks)</h3>
+                <ul>
+                  <li>Timeline scrubber for draft playback.</li>
+                  <li>Inline diffs for sentence changes.</li>
+                  <li>Exportable receipt for sharing.</li>
+                  <li>Public JSON for provenance data.</li>
+                </ul>
+              </div>
+            </div>
+
+            <h2>Edit log</h2>
+            <div class="edit-log">
+              <div>
+                <h3>Prompts used</h3>
+                <ul>
+                  <li>“Draft an outline for a provenance-first blog post.”</li>
+                  <li>“Add a counterargument about authenticity.”</li>
+                  <li>“Rewrite with a calmer, editorial tone.”</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Biggest changes</h3>
+                <ul>
+                  <li>Human wrote the thesis and conclusion from scratch.</li>
+                  <li>AI examples replaced with real metrics and stories.</li>
+                  <li>Removed generic paragraphs to tighten pacing.</li>
+                </ul>
+              </div>
+            </div>
+
+            <h2>Positioning line</h2>
+            <blockquote class="positioning-line">
+              “I publish the edit trail because the interesting part isn’t the draft.
+              It’s the decisions.”
+            </blockquote>
           </div>
         </article>
       </main>
     </div>
+    <script>
+      const toggle = document.querySelector("#modeToggle");
+      const body = document.body;
+
+      toggle.addEventListener("click", () => {
+        const isProvenance = body.classList.toggle("provenance-mode");
+        toggle.textContent = isProvenance ? "Provenance" : "Reader";
+        toggle.setAttribute("aria-pressed", isProvenance ? "true" : "false");
+      });
+    </script>
   </body>
 </html>
